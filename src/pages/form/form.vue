@@ -1,3 +1,11 @@
+<!--
+ * @Author: Cora huangyinlin@heyme.cn
+ * @Date: 2023-08-03 10:54:38
+ * @LastEditors: Cora huangyinlin@heyme.cn
+ * @LastEditTime: 2023-08-04 10:37:29
+ * @FilePath: \heyme.application.h5\src\pages\form\form.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <template >
     <div class="nav-bar">
         <div class="back" @click="onClickLeft">返回</div>
@@ -16,28 +24,13 @@
         <van-collapse-item title="四、教育情况" name="4">
             <education_info></education_info>
         </van-collapse-item>
-        <van-collapse-item title="五、主要培训经历" name="5">
+        <van-collapse-item title="五、主要工作以及培训经历" name="5">
             <training_experience_info></training_experience_info>
         </van-collapse-item>
-        <van-collapse-item title="六、技能" name="6">
-            <skill_info></skill_info>
-        </van-collapse-item>
-        <van-collapse-item title="七、语言" name="7">
-            <language_info></language_info>
-        </van-collapse-item>
-        <van-collapse-item title="八、工作经历" name="8">
-            <work_experience></work_experience>
-        </van-collapse-item>
-        <van-collapse-item title="九、资格证书" name="9">
+        <van-collapse-item title="六、资格证书" name="6">
             <certificates_info></certificates_info>
         </van-collapse-item>
-        <van-collapse-item title="十、健康状况" name="10">
-            <health_info></health_info>
-        </van-collapse-item>
-        <van-collapse-item title="十一、在本公司任职的亲友及原同事" name="11">
-            <community_info></community_info>
-        </van-collapse-item>
-        <van-collapse-item title="十二、声明" name="12">
+        <van-collapse-item title="七、声明" name="7">
             <declare></declare>
         </van-collapse-item>
     </van-collapse>
@@ -51,16 +44,12 @@ const activeNames = ref('');
 import { useRouter } from 'vue-router';
 import application_info from "./cpns/application_info.vue";
 import Certificates_info from "./cpns/certificates_info.vue";
-import Community_info from "./cpns/community_info.vue";
 import Declare from "./cpns/declare.vue";
 import education_info from "./cpns/education_info.vue";
 import family_info from "./cpns/family_info.vue";
-import Health_info from "./cpns/health_info.vue";
-import language_info from "./cpns/language_info.vue";
 import personal_info from "./cpns/personal_info.vue";
-import skill_info from "./cpns/skill_info.vue";
 import Training_experience_info from "./cpns/training_experience_info.vue";
-import Work_experience from "./cpns/work_experience.vue";
+
 const router = useRouter()
 const onClickLeft = function () {
     router.back()
