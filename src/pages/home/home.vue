@@ -1,3 +1,11 @@
+<!--
+ * @Author: Cora huangyinlin@heyme.cn
+ * @Date: 2023-08-03 08:28:36
+ * @LastEditors: Cora huangyinlin@heyme.cn
+ * @LastEditTime: 2023-08-03 14:24:10
+ * @FilePath: \heyme.application.h5\src\pages\home\home.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <template  class="home">
     <div class="logo">
         <img src="../../assets/imgs/heyme_logo.png" alt="">
@@ -9,13 +17,24 @@
         <div class="content">
             <div>1.非常感谢您应聘海默股份相关职位，我们将致力为您提供公平的就业机会。</div>
             <div>2.请您如实填写个人资料，您所填写的资料将会被视为机密，我公司将为您做好保密工作。</div>
+            <div>3.请您如实告知身体状况。</div>
+            <div>4.<span style="color: red;">*</span>为必填项</div>
         </div>
     </div>
-    <van-button type="primary" to="/form" size="large">开始填写</van-button>
+    <div class="button">
+        <van-button type="primary" to="/form">开始填写</van-button>
+    </div>
 </template>
 <script lang="ts" setup>
 </script>
 <style lang="less" scoped>
+.button {
+    font-size: 18px;
+    padding: 6px 12px;
+    display: flex;
+    justify-content: center;
+}
+
 .logo {
     img {
         width: 100px;

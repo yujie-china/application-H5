@@ -3,8 +3,8 @@
 
     <van-form label-align="top">
       <van-cell-group inset v-for="(FormData, index) in FormDatas" :key="index">
-        <van-field v-model="FormData.certificate_name" label="资格证书" placeholder="填写资格证书名称" />
-        <van-field v-model="FormData.certificate_id" label="证书编号" placeholder="填写证书编号" />
+        <van-field v-model="FormData.certificate_name" maxlength="24" label="资格证书" placeholder="填写资格证书名称"/>
+        <van-field v-model="FormData.certificate_id" maxlength="24" label="证书编号" placeholder="填写证书编号" />
 
         <van-field v-model="FormData.certificate_end_time" is-link readonly name="datePicker" label="证书到期日"
           placeholder="点击选择时间" @click="showPicker[index] = true" />
@@ -14,8 +14,8 @@
 
       </van-cell-group>
       <div class="btns">
-        <van-button icon="plus" type="primary" @click="addForm" />
-        <van-button icon="minus" type="primary" @click="reduceForm" :disabled="FormDatas.length === 1" />
+        <van-button icon="plus" type="primary" size="small" @click="addForm" />
+        <van-button icon="minus" type="primary" size="small" @click="reduceForm" :disabled="FormDatas.length === 1" />
       </div>
     </van-form>
 
