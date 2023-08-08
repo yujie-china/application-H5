@@ -1,6 +1,5 @@
-import { useUserStoreWithOut } from "./modules/user"
+import { createPinia } from "pinia"
 
-export function useStore () {
-    const user = useUserStoreWithOut()
-    return { user }
-}
+const pinia = createPinia()
+
+export default pinia

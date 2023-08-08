@@ -1,3 +1,11 @@
+<!--
+ * @Author: Cora huangyinlin@heyme.cn
+ * @Date: 2023-08-03 10:54:38
+ * @LastEditors: Cora huangyinlin@heyme.cn
+ * @LastEditTime: 2023-08-04 10:37:29
+ * @FilePath: \heyme.application.h5\src\pages\form\form.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <template >
     <div class="nav-bar">
         <div class="back" @click="onClickLeft">返回</div>
@@ -16,54 +24,79 @@
         <van-collapse-item title="四、教育情况" name="4">
             <education_info></education_info>
         </van-collapse-item>
-        <van-collapse-item title="五、主要培训经历" name="5">
+        <van-collapse-item title="五、主要工作以及培训经历" name="5">
             <training_experience_info></training_experience_info>
         </van-collapse-item>
-        <van-collapse-item title="六、技能" name="6">
-            <skill_info></skill_info>
-        </van-collapse-item>
-        <van-collapse-item title="七、语言" name="7">
-            <language_info></language_info>
-        </van-collapse-item>
-        <van-collapse-item title="八、工作经历" name="8">
-            <work_experience></work_experience>
-        </van-collapse-item>
-        <van-collapse-item title="九、资格证书" name="9">
+        <van-collapse-item title="六、资格证书" name="6">
             <certificates_info></certificates_info>
         </van-collapse-item>
-        <van-collapse-item title="十、健康状况" name="10">
-            <health_info></health_info>
-        </van-collapse-item>
-        <van-collapse-item title="十一、在本公司任职的亲友及原同事" name="11">
-            <community_info></community_info>
-        </van-collapse-item>
-        <van-collapse-item title="十二、声明" name="12">
+        <van-collapse-item title="七、声明" name="7">
             <declare></declare>
         </van-collapse-item>
     </van-collapse>
-    <van-button type="primary" to="/thanks" size="large">提交</van-button>
+    <van-button type="primary" size="large" to="/thanks" @click="update">提交</van-button>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-const activeNames = ref('');
-
+import { ref, computed } from "vue";
 import { useRouter } from 'vue-router';
 import application_info from "./cpns/application_info.vue";
 import Certificates_info from "./cpns/certificates_info.vue";
-import Community_info from "./cpns/community_info.vue";
 import Declare from "./cpns/declare.vue";
 import education_info from "./cpns/education_info.vue";
 import family_info from "./cpns/family_info.vue";
-import Health_info from "./cpns/health_info.vue";
-import language_info from "./cpns/language_info.vue";
 import personal_info from "./cpns/personal_info.vue";
-import skill_info from "./cpns/skill_info.vue";
 import Training_experience_info from "./cpns/training_experience_info.vue";
-import Work_experience from "./cpns/work_experience.vue";
+import { applyMainFormData } from "@/service/main/main"
+import { storeToRefs } from "pinia"
+import useApplicationStore from "@/store/main/application";
+const activeNames = ref('');
 const router = useRouter()
 const onClickLeft = function () {
     router.back()
+}
+const update = () => {
+    const applicationStore = useApplicationStore()
+    const { mainFormData, certificatesFormData, educationFormData, familyFormData, work_experienceFormData, train_experienceFormData } = storeToRefs(applicationStore)
+
+    //新对象
+    const combinedFormData = ref({})
+
+    // 将所有FormData的字段都合并到一个新对象中
+    for (const key in mainFormData.value) {
+        combinedFormData[key] = mainFormData.value[key];
+    }
+    certificatesFormData.value.forEach((certData, index) => {
+        for (const key in certData) {
+            const newKey = `${key}${index + 1}`;
+            combinedFormData[newKey] = certData[key];
+        }
+    });
+    educationFormData.value.forEach((eduData, index) => {
+        for (const key in eduData) {
+            const newKey = `${key}${index + 1}`;
+            combinedFormData[newKey] = eduData[key];
+        }
+    });
+    familyFormData.value.forEach((familyData, index) => {
+        for (const key in familyData) {
+            const newKey = `${key}${index + 1}`;
+            combinedFormData[newKey] = familyData[key];
+        }
+    });
+    work_experienceFormData.value.forEach((workData, index) => {
+        for (const key in workData) {
+            const newKey = `${key}${index + 1}`;
+            combinedFormData[newKey] = workData[key];
+        }
+    });
+    train_experienceFormData.value.forEach((trainData, index) => {
+        for (const key in trainData) {
+            const newKey = `${key}${index + 1}`;
+            combinedFormData[newKey] = trainData[key];
+        }
+    });
+    applyMainFormData(combinedFormData);
 }
 </script>
 

@@ -322,6 +322,11 @@
     "@typescript-eslint/types" "5.57.1"
     eslint-visitor-keys "^3.3.0"
 
+"@vant/area-data@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@vant/area-data/-/area-data-1.5.0.tgz#0627f8a6cc67ebc137b43a1867a28d455d21a21c"
+  integrity sha512-SWmDhYmWiOgtAgtJqcW7N4XyGgrg/7l6t1+XSgt8BkPp2oOKO1ZUn8+46brLpT/gzRe/v8BtyTLmdBwMamrmQw==
+
 "@vant/popperjs@^1.3.0":
   version "1.3.0"
   resolved "https://registry.npmjs.org/@vant/popperjs/-/popperjs-1.3.0.tgz#e0eff017124b5b2352ef3b36a6df06277f4400f2"
@@ -475,6 +480,11 @@
   version "3.2.47"
   resolved "https://registry.npmjs.org/@vue/shared/-/shared-3.2.47.tgz#e597ef75086c6e896ff5478a6bfc0a7aa4bbd14c"
   integrity sha512-BHGyyGN3Q97EZx0taMQ+OLNuZcW3d37ZEVmEAyeoA9ERdGvm9Irc/0Fua8SNyOtV1w6BS4q25wbMzJujO9HIfQ==
+
+"@vue/shared@^3.0.0":
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.3.4.tgz#06e83c5027f464eef861c329be81454bc8b70780"
+  integrity sha512-7OjdcV8vQ74eiz1TZLzZP4JwqM5fA94K6yntPS5Z25r9HDuGNzaGdgvwKYq6S+MxwF0TFRwe50fIR/MYnakdkQ==
 
 acorn-jsx@^5.3.2:
   version "5.3.2"
@@ -1928,13 +1938,14 @@ util-deprecate@^1.0.2:
   resolved "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
 
-vant@^4.1.2:
-  version "4.1.2"
-  resolved "https://registry.npmjs.org/vant/-/vant-4.1.2.tgz#080fd7cdd2e0af80bcd105949b0b4c390083cac0"
-  integrity sha512-iRUYBR5zDbs7O0UTxauyW/0XbJoE0g/eHipn0y3QxXeazdmNiaV0kGbBKRJ8vE/7p74zila/O5LzDiYbPDDN7Q==
+vant@^4.6.3:
+  version "4.6.3"
+  resolved "https://registry.yarnpkg.com/vant/-/vant-4.6.3.tgz#e36a2dc2fa94253b8218094d88e9b0cd62b3437d"
+  integrity sha512-hkiBzM1dhEj9EWSjRnyB7gd6SiVa3/+qthNZtlJdj42C+pXIN+oq0UhKz5PRHWi8fHyPfycnqRzyvEJxouT+zw==
   dependencies:
     "@vant/popperjs" "^1.3.0"
     "@vant/use" "^1.5.1"
+    "@vue/shared" "^3.0.0"
 
 vite-plugin-compression@^0.5.1:
   version "0.5.1"
