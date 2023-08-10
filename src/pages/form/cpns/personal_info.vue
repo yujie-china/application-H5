@@ -142,6 +142,9 @@ const showSave = () => {
         title: "保存成功",
     })
 }
+
+
+
 // const FormData = ref({
 //     cn_name: "",
 //     eng_name: "",
@@ -179,9 +182,31 @@ const applicationStore = useApplicationStore()
 const { mainFormData } = storeToRefs(applicationStore)
 const FormData = mainFormData
 
+
+function calculateAge (birthDate) {
+    const birth = new Date(birthDate);
+    const now = new Date();
+
+    let age = now.getFullYear() - birth.getFullYear();
+    const monthDiff = now.getMonth() - birth.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < birth.getDate())) {
+        age--;
+    }
+
+    return age;
+}
+
+
+
+
+
+
 const showPicker1 = ref(false);
 const onConfirm1 = ({ selectedValues }) => {
     FormData.value.birth_time = selectedValues.join('/');
+    const age = calculateAge(FormData.value.birth_time)
+    mainFormData.value.age = age;
     showPicker1.value = false;
 };
 
