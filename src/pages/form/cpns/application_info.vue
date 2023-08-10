@@ -14,7 +14,7 @@
         <van-field v-model="FormData.come_time" is-link readonly name="datePicker" label="可到岗日期" placeholder="点击选择时间"
           @click="showPicker1 = true" required />
         <van-popup v-model:show="showPicker1" position="bottom">
-          <van-date-picker @confirm="onConfirm1" @cancel="showPicker1 = false" :min-date="minDate" />
+          <van-date-picker @confirm="onConfirm1" @cancel="showPicker1 = false" />
         </van-popup>
         <van-radio-group v-model="FormData.is_business_trip" direction="horizontal">
           <van-col :span="24"><span class="work_tit">是否接受出差：</span></van-col>
@@ -54,16 +54,13 @@
           <van-field v-model="fieldValue" is-link readonly label="通过何种途径获知该职位？" placeholder="请选择途径"
             @click="show = true" />
           <van-popup v-model:show="show" round position="bottom">
-            <van-cascader v-model="FormData.cascaderValue" title="请选择途径" :options="options" @close="show = false"
+            <van-cascader v-model="FormData.road" title="请选择途径" :options="options" @close="show = false"
               style="font-size: 16px" @finish="onFinish" />
           </van-popup>
-          <van-field v-if="FormData.cascaderValue === '6'" class="input_other" label-align="left" v-model="FormData.road"
-            maxlength="24" label="其他途径:" placeholder="请说明" />
         </van-radio-group>
       </van-cell-group>
     </van-form>
   </div>
-  <van-button type="default" block @click="updateMainFormData">保存</van-button>
 </template>
 
 <script setup lang="ts">
@@ -112,27 +109,27 @@ const fieldValue = ref('');
 const options = [
   {
     text: '网站',
-    value: '1'
+    value: '网站'
   },
   {
     text: '招聘会',
-    value: '2'
+    value: '招聘会'
   },
   {
     text: '报纸',
-    value: '3'
+    value: '报纸'
   },
   {
     text: '猎头',
-    value: '4'
+    value: '猎头'
   },
   {
     text: '推荐',
-    value: '5'
+    value: '推荐'
   },
   {
-    text: '其他途径请说明',
-    value: '6'
+    text: '其他途径',
+    value: '其他途径'
   },
 ];
 // 全部选项选择完毕后，会触发 finish 事件

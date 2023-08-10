@@ -6,7 +6,7 @@ export function applyMainFormData (combinedFormData: any) {
   console.log(formDataJson);
 
   return hyRequest.post({
-    url: "/h5",
+    url: "/mobile",
     data: formDataJson,
     headers: {
       'Content-Type': 'application/json',

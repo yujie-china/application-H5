@@ -16,7 +16,6 @@
       </van-cell-group>
     </van-form>
   </div>
-  <van-button type="default" block>保存</van-button>
 </template>
 
 <script setup>

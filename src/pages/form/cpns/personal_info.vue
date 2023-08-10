@@ -28,7 +28,7 @@
                     <van-field v-model="politicalValue" is-link readonly label="政治面貌" placeholder="请选择" required
                         @click="show = true" />
                     <van-popup v-model:show="show" round position="bottom">
-                        <van-cascader v-model="politicalCascaderValue" title="请选择政治面貌" :options="options"
+                        <van-cascader v-model="FormData.politicalCascaderValue" title="请选择政治面貌" :options="options"
                             @close="show = false" style="font-size: 16px" @finish="onFinish" />
                     </van-popup>
                 </van-radio-group>
@@ -40,27 +40,25 @@
                     <van-radio shape="square" icon-size="16px" name="3">离异</van-radio>
                 </van-radio-group>
 
-                <van-field v-model="locationValue" is-link readonly label="户口所在地" placeholder="请输入户口所在地"
-                    @click="locationShow = true" required />
+                <van-field v-model="FormData.locationCascaderValue" is-link readonly label="户口所在地" placeholder="请输入户口所在地"
+                    @click="locationShow = true" />
                 <van-popup v-model:show="locationShow" round position="bottom">
-                    <van-cascader v-model="FormData.locationCascaderValue" title="请选择所在地区" :options="locationOptions"
-                        @close="locationShow = false" @finish="locationOnFinish" />
+                    <van-area :area-list="areaList" title="请选择所在地区" @confirm="locationOnFinish"
+                        @cancel="locationShow = false" />
                 </van-popup>
 
-                <van-field v-model="livingValue" is-link readonly label="现居住地" placeholder="请输入现居住地"
-                    @click="livingShow = true" required />
+                <van-field v-model="FormData.livingCascaderValue" is-link readonly label="居住地" placeholder="请输入户口所在地"
+                    @click="livingShow = true" />
                 <van-popup v-model:show="livingShow" round position="bottom">
-                    <van-cascader v-model="FormData.livingCascaderValue" title="请选择所在地区" :options="livingOptions"
-                        @close="livingShow = false" @finish="livingOnFinish" />
+                    <van-area :area-list="areaList" title="请选择所在地区" @confirm="livingOnFinish"
+                        @cancel="livingShow = false" />
                 </van-popup>
 
-
-
-                <van-field v-model="nativeValue" is-link readonly label="籍贯" placeholder="请输入籍贯" @click="nativeShow = true"
-                    required />
+                <van-field v-model="FormData.nativeCascaderValue" is-link readonly label="籍贯" placeholder="请输入籍贯"
+                    @click="nativeShow = true" />
                 <van-popup v-model:show="nativeShow" round position="bottom">
-                    <van-cascader v-model="nativeCascaderValue" title="请选择所在地区" :options="nativeOptions"
-                        @close="nativeShow = false" @finish="nativeOnFinish" />
+                    <van-area :area-list="areaList" title="请选择所在地区" @confirm="nativeOnFinish"
+                        @cancel="nativeShow = false" />
                 </van-popup>
 
                 <van-col span="12">
@@ -114,12 +112,13 @@
             </van-cell-group>
         </van-form>
     </div>
-    <van-button type="default" block @click="showSave">保存</van-button>
+    <!-- <van-button type="default" block @click="showSave">保存</van-button> -->
 </template>
 
 <script setup>
+import { areaList } from '@vant/area-data';
 import { ref } from "vue";
-import { useCascaderAreaData } from '@vant/area-data';
+// import { useCascaderAreaData } from '@vant/area-data';
 import {
     addressRules,
     cnameRules,
@@ -137,11 +136,11 @@ import {
     wxRules
 } from "@/utils/rules.ts";
 const minDate = ref(new Date("1970-01-01"));
-const showSave = () => {
-    showDialog({
-        title: "保存成功",
-    })
-}
+// const showSave = () => {
+//     showDialog({
+//         title: "保存成功",
+//     })
+// }
 
 
 
@@ -197,11 +196,6 @@ function calculateAge (birthDate) {
     return age;
 }
 
-
-
-
-
-
 const showPicker1 = ref(false);
 const onConfirm1 = ({ selectedValues }) => {
     FormData.value.birth_time = selectedValues.join('/');
@@ -217,55 +211,55 @@ const politicalCascaderValue = ref('');
 const options = [
     {
         text: '群众',
-        value: '1'
+        value: '群众'
     },
     {
         text: '中共党员',
-        value: '2'
+        value: '中共党员'
     },
     {
         text: '中共预备党员',
-        value: '3'
+        value: '中共预备党员'
     },
     {
         text: '共青团员',
-        value: '4'
+        value: '共青团员'
     },
     {
         text: '民革党员',
-        value: '5'
+        value: '民革党员'
     },
     {
         text: '民盟盟员',
-        value: '6'
+        value: '民盟盟员'
     },
     {
         text: '民建会员',
-        value: '7'
+        value: '民建会员'
     },
     {
         text: '民进会员',
-        value: '8'
+        value: '民进会员'
     },
     {
         text: '农工党党员',
-        value: '9'
+        value: '农工党党员'
     },
     {
         text: '致公党党员',
-        value: '10'
+        value: '致公党党员'
     },
     {
         text: '九三学社社员',
-        value: '11'
+        value: '九三学社社员'
     },
     {
         text: '台盟盟员',
-        value: '12'
+        value: '台盟盟员'
     },
     {
         text: '无党派人士',
-        value: '13'
+        value: '无党派人士'
     },
 ];
 // 全部选项选择完毕后，会触发 finish 事件
@@ -273,29 +267,28 @@ const onFinish = ({ selectedOptions }) => {
     show.value = false;
     politicalValue.value = selectedOptions.map((option) => option.text).join('/');
 };
+
+
+
 //地区
 const locationShow = ref(false);
-const locationValue = ref('');
-const locationOptions = useCascaderAreaData();
 const locationOnFinish = ({ selectedOptions }) => {
     locationShow.value = false;
-    locationValue.value = selectedOptions.map((option) => option.text).join('/');
+    FormData.value.locationCascaderValue = selectedOptions.map((item) => item.text).join('/');
 };
+
 
 const livingShow = ref(false);
-const livingValue = ref('');
-const livingOptions = useCascaderAreaData();
 const livingOnFinish = ({ selectedOptions }) => {
     livingShow.value = false;
-    livingValue.value = selectedOptions.map((option) => option.text).join('/');
+    FormData.value.livingCascaderValue = selectedOptions.map((item) => item.text).join('/');
 };
 
+
 const nativeShow = ref(false);
-const nativeValue = ref('');
-const nativeOptions = useCascaderAreaData();
 const nativeOnFinish = ({ selectedOptions }) => {
     nativeShow.value = false;
-    nativeValue.value = selectedOptions.map((option) => option.text).join('/');
+    FormData.value.nativeCascaderValue = selectedOptions.map((item) => item.text).join('/');
 };
 
 </script>
