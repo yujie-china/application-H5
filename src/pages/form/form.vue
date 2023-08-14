@@ -17,10 +17,10 @@
         <van-collapse-item title="四、教育情况" name="4">
             <education_info></education_info>
         </van-collapse-item>
-        <van-collapse-item title="五、主要工作以及培训经历" name="5">
+        <van-collapse-item title="五、主要工作以及培训经历(有则填写)" name="5">
             <training_experience_info></training_experience_info>
         </van-collapse-item>
-        <van-collapse-item title="六、资格证书" name="6">
+        <van-collapse-item title="六、资格证书(有则填写)" name="6">
             <certificates_info></certificates_info>
         </van-collapse-item>
         <van-collapse-item title="七、声明" name="7">
