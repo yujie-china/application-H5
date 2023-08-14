@@ -2,9 +2,8 @@
   <div class="application_info">
     <van-form label-align="top">
       <!-- 工作经历 -->
-      <span class="box">工作经历:</span>
+      <span class="box" style="font-weight: 700;">工作经历:</span>
       <van-cell-group inset v-for="(FormData, index) in WeFormData" :key="index">
-
         <van-row>
           <van-col :span="11">
             <van-field v-model="FormData.workstart_time" is-link readonly name="datePicker" label="任职起始时间"
@@ -37,7 +36,7 @@
         <van-button icon="minus" type="primary" @click="reduceForm2" :disabled="WeFormData.length === 1" size="small" />
       </div>
       <!-- 培训机构 -->
-      <span class="box">培训机构:</span>
+      <span class="box" style="font-weight: 700;">培训经历:</span>
       <van-cell-group inset v-for="(FormData, index) in TeFormData" :key="index">
         <van-field v-model="FormData.trainingTime" is-link readonly name="datePicker" label="培训时间" placeholder="点击选择时间"
           @click="showPicker[index] = true" />
@@ -150,7 +149,7 @@ const onConfirm2 = ({ selectedValues }, index) => {
     margin-bottom: 5px;
   }
 
-  /deep/.van-button {
+  :deep(.van-button) {
     border-radius: 50px;
     margin: 0 auto;
     display: block;

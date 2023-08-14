@@ -3,7 +3,7 @@ import hyRequest from "../index"
 
 export function applyMainFormData (combinedFormData: any) {
   const formDataJson = JSON.stringify(combinedFormData)
-  console.log(formDataJson);
+  // console.log(formDataJson);
 
   return hyRequest.post({
     url: "/mobile",
