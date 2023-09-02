@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="button">
-        <van-button type="primary" to="/form">开始填写</van-button>
+        <van-button type="primary" to="/template/form">开始填写</van-button>
     </div>
 </template>
 <script lang="ts" setup>

@@ -94,7 +94,7 @@ const update = () => {
     if (combinedFormData.confirmed == '同意') {
         applyMainFormData(combinedFormData);
         showSuccessToast('提交成功');
-        router.go(1)
+        router.push('thanks')
     } else {
         showFailToast('提交失败，请检查是否有必填项未填写');
     }

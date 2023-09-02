@@ -2,21 +2,21 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/",
-    redirect: "/home",
+    path: "/template",
+    redirect: "/template/home",
   },
   {
-    path: "/home",
+    path: "/template/home",
     name: "home",
     component: () => import("@/pages/home/home.vue"),
   },
   {
-    path: "/form",
+    path: "/template/form",
     name: "form",
     component: () => import("@/pages/form/form.vue"),
   },
   {
-    path: "/thanks",
+    path: "/template/thanks",
     name: "thanks",
     component: () => import("@/pages/thanks/thanks.vue"),
   },
