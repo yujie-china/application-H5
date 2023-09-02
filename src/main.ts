@@ -5,12 +5,14 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import pinia from "./store"
 import "./assets/css/index.less";
-
+import { Toast } from 'vant';
 const app = createApp(App);
 
 app.use(ConfigProvider);
-app.use(pinia)
+app.use(pinia);
+app.use(Toast);
 app.use(router);
+
 
 router.isReady();
 

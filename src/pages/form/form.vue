@@ -27,10 +27,12 @@
             <declare></declare>
         </van-collapse-item>
     </van-collapse>
-    <van-button type="primary" size="large" to="/thanks" @click="update">提交</van-button>
+    <van-button type="primary" size="large" @click="update">提交</van-button>
 </template>
 
 <script lang="ts" setup>
+import 'vant/es/toast/style';
+import { showSuccessToast, showFailToast } from 'vant';
 import { ref, computed } from "vue";
 import { useRouter } from 'vue-router';
 import application_info from "./cpns/application_info.vue";
@@ -89,7 +91,14 @@ const update = () => {
             combinedFormData[newKey] = trainData[key];
         }
     });
-    applyMainFormData(combinedFormData);
+    if (combinedFormData.confirmed == '同意') {
+        applyMainFormData(combinedFormData);
+        showSuccessToast('提交成功');
+        router.go(1)
+    } else {
+        showFailToast('提交失败，请检查是否有必填项未填写');
+    }
+
 }
 </script>
 

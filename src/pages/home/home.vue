@@ -1,11 +1,4 @@
-<!--
- * @Author: Cora huangyinlin@heyme.cn
- * @Date: 2023-08-03 08:28:36
- * @LastEditors: Cora huangyinlin@heyme.cn
- * @LastEditTime: 2023-08-03 14:24:10
- * @FilePath: \heyme.application.h5\src\pages\home\home.vue
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
+
 <template  class="home">
     <div class="logo">
         <img src="../../assets/imgs/heyme_logo.png" alt="">
