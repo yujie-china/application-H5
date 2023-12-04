@@ -16,7 +16,6 @@
     </div>
     <div class="btns">
         <van-button type="primary" url="https://mp.weixin.qq.com/s/YeY6J8qarWdhjwLcNrtVMA">公司介绍</van-button>
-        <van-button type="primary" url="http://ai.heyme.cn/login">heyme问道</van-button>
     </div>
 </template>
 <script lang="ts" setup>
