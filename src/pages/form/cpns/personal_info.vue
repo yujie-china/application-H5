@@ -5,13 +5,13 @@
             <van-cell-group inset class="flex-container">
                 <van-row>
                     <van-col span="12">
-                        <van-field v-model="FormData.cn_name" maxlength="11" label="中文名" :rules="cnameRules"
+                        <van-field v-model="FormData.cn_name" maxlength="11" label="姓名" :rules="cnameRules"
                             placeholder="请输入中文名" required />
                     </van-col>
-                    <van-col span="12">
+                    <!-- <van-col span="12">
                         <van-field v-model="FormData.eng_name" maxlength="11" label="英文名" :rules="enameRules"
                             placeholder="请输入英文名" required />
-                    </van-col>
+                    </van-col> -->
                 </van-row>
                 <van-radio-group v-model="FormData.sex" direction="horizontal">
                     <span class="star_style">*</span><span class="work_tit">性别</span>
@@ -80,35 +80,35 @@
                 </van-row>
                 <van-field v-model="FormData.phone" :rules="mobileRules" label="手机号" placeholder="请输入手机号码" maxlength="11"
                     required />
-                <van-field v-model="FormData.wx" :rules="wxRules" label="微信号" placeholder="请输入微信号" required />
+                <!-- <van-field v-model="FormData.wx" :rules="wxRules" label="微信号" placeholder="请输入微信号" required /> -->
                 <van-field v-model="FormData.ID_card" :rules="IDcardRules" label="身份证号码" placeholder="请输入身份证号码"
                     maxlength="18" required />
                 <van-field v-model="FormData.email" :rules="emailRules" label="常用邮箱（录用通知使用）" placeholder="请输入常用邮箱"
                     required />
                 <van-field v-model="FormData.emergency_phone" :rules="mobileRules" label="紧急联系人电话" placeholder="请输入紧急联系人电话"
                     maxlength="11" required />
-                <van-field v-model="FormData.sick" :rules="helRules" label="健康状况" placeholder=" 极好 很好 好 一般 差 " maxlength="2"
-                    required />
-                <van-field v-model="FormData.sick_level" :rules="healRules" maxlength="36"
+                <!-- <van-field v-model="FormData.sick" :rules="helRules" label="健康状况" placeholder=" 极好 很好 好 一般 差 " maxlength="2"
+                    required /> -->
+                <!-- <van-field v-model="FormData.sick_level" :rules="healRules" maxlength="36"
                     label="是否患有影响本职工作的各种疾病（如：遗传病、慢性病、传染病等）以及需要休息的各种身体状态，如有，请列明" placeholder="请如实告知" required />
                 <van-field v-model="FormData.certificate" maxlength="24" label="计算机及等级证书等" placeholder="计算机及等级证书等" />
                 <van-radio-group v-model="FormData.isCar" direction="horizontal">
                     <span class="star_style">*</span><span class="work_tit">是否有驾驶证</span>
                     <van-radio class="work_kit_radio" shape="square" icon-size="16px" name="1">是</van-radio>
                     <van-radio class="work_kit_radio" shape="square" icon-size="16px" name="2">否</van-radio>
-                </van-radio-group>
-                <van-field v-if="FormData.isCar === '1'" v-model="FormData.level" label="驾照类型" placeholder="请输入驾照类型" />
+                </van-radio-group> -->
+                <!-- <van-field v-if="FormData.isCar === '1'" v-model="FormData.level" label="驾照类型" placeholder="请输入驾照类型" />
                 <van-field v-model="FormData.language" maxlength="11" label="语种" placeholder="请输入语种" />
                 <van-radio-group v-model="FormData.isLevel" direction="horizontal">
                     <span style="margin-left: 16px;font-size: 16px;color: #323233;">水平</span>
                     <van-radio class="work_kit_radio" shape="square" icon-size="16px" name="1">流利</van-radio>
                     <van-radio class="work_kit_radio" shape="square" icon-size="16px" name="2">普通</van-radio>
                     <van-radio class="work_kit_radio" shape="square" icon-size="16px" name="3">略懂</van-radio>
-                </van-radio-group>
+                </van-radio-group> -->
                 <van-field v-model="FormData.home_address" :rules="addressRules" label="家庭住址" placeholder="请输入家庭住址"
                     required />
-                <van-field v-model="FormData.habit" :rules="hobbyRules" maxlength="11" label="兴趣爱好" placeholder="请输入兴趣爱好"
-                    required />
+                <!-- <van-field v-model="FormData.habit" :rules="hobbyRules" maxlength="11" label="兴趣爱好" placeholder="请输入兴趣爱好"
+                    required /> -->
             </van-cell-group>
         </van-form>
     </div>

@@ -11,19 +11,19 @@
         <van-collapse-item title="二、个人情况" name="2">
             <personal_info></personal_info>
         </van-collapse-item>
-        <van-collapse-item title="三、家庭情况" name="3">
+        <!-- <van-collapse-item title="三、家庭情况" name="3">
             <family_info></family_info>
-        </van-collapse-item>
-        <van-collapse-item title="四、教育情况" name="4">
+        </van-collapse-item> -->
+        <van-collapse-item title="三、教育情况" name="4">
             <education_info></education_info>
         </van-collapse-item>
-        <van-collapse-item title="五、主要工作以及培训经历" name="5">
+        <van-collapse-item title="四、工作经历" name="5">
             <training_experience_info></training_experience_info>
         </van-collapse-item>
-        <van-collapse-item title="六、资格证书" name="6">
+        <!-- <van-collapse-item title="六、资格证书" name="6">
             <certificates_info></certificates_info>
-        </van-collapse-item>
-        <van-collapse-item title="七、声明" name="7">
+        </van-collapse-item> -->
+        <van-collapse-item title="五、声明" name="7">
             <declare></declare>
         </van-collapse-item>
     </van-collapse>
@@ -36,10 +36,10 @@ import { showSuccessToast, showFailToast } from 'vant';
 import { ref, computed } from "vue";
 import { useRouter } from 'vue-router';
 import application_info from "./cpns/application_info.vue";
-import Certificates_info from "./cpns/certificates_info.vue";
+// import Certificates_info from "./cpns/certificates_info.vue";
 import Declare from "./cpns/declare.vue";
 import education_info from "./cpns/education_info.vue";
-import family_info from "./cpns/family_info.vue";
+// import family_info from "./cpns/family_info.vue";
 import personal_info from "./cpns/personal_info.vue";
 import Training_experience_info from "./cpns/training_experience_info.vue";
 import { applyMainFormData } from "@/service/main/main"
@@ -61,36 +61,36 @@ const update = () => {
     for (const key in mainFormData.value) {
         combinedFormData[key] = mainFormData.value[key];
     }
-    certificatesFormData.value.forEach((certData, index) => {
-        for (const key in certData) {
-            const newKey = `${key}${index + 1}`;
-            combinedFormData[newKey] = certData[key];
-        }
-    });
+    // certificatesFormData.value.forEach((certData, index) => {
+    //     for (const key in certData) {
+    //         const newKey = `${key}${index + 1}`;
+    //         combinedFormData[newKey] = certData[key];
+    //     }
+    // });
     educationFormData.value.forEach((eduData, index) => {
         for (const key in eduData) {
             const newKey = `${key}${index + 1}`;
             combinedFormData[newKey] = eduData[key];
         }
     });
-    familyFormData.value.forEach((familyData, index) => {
-        for (const key in familyData) {
-            const newKey = `${key}${index + 1}`;
-            combinedFormData[newKey] = familyData[key];
-        }
-    });
+    // familyFormData.value.forEach((familyData, index) => {
+    //     for (const key in familyData) {
+    //         const newKey = `${key}${index + 1}`;
+    //         combinedFormData[newKey] = familyData[key];
+    //     }
+    // });
     work_experienceFormData.value.forEach((workData, index) => {
         for (const key in workData) {
             const newKey = `${key}${index + 1}`;
             combinedFormData[newKey] = workData[key];
         }
     });
-    train_experienceFormData.value.forEach((trainData, index) => {
-        for (const key in trainData) {
-            const newKey = `${key}${index + 1}`;
-            combinedFormData[newKey] = trainData[key];
-        }
-    });
+    // train_experienceFormData.value.forEach((trainData, index) => {
+    //     for (const key in trainData) {
+    //         const newKey = `${key}${index + 1}`;
+    //         combinedFormData[newKey] = trainData[key];
+    //     }
+    // });
     if (combinedFormData.confirmed == '同意') {
         applyMainFormData(combinedFormData);
         showSuccessToast('提交成功');

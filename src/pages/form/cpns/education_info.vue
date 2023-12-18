@@ -1,8 +1,7 @@
 <template>
   <div class="application_info">
-
     <van-form label-align="top">
-      <div>（教育背景从最高学历填起至高中）</div>
+      <div>（教育背景从最高学历填起）</div>
       <van-cell-group inset v-for="(FormData, index) in FormDatas" :key="index">
         <van-row gutter="24">
           <van-col :span="11">

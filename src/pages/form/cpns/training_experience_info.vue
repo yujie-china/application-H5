@@ -29,14 +29,14 @@
         <van-field v-model="FormData.position" maxlength="11" label="所任职位" placeholder="请输入所任职位" />
         <van-field v-model="FormData.treatment" maxlength="24" label="薪酬待遇" placeholder="请输入薪酬待遇" />
         <van-field v-model="FormData.leave_reason" maxlength="24" label="离职原因" placeholder="请输入离职原因" />
-        <van-field v-model="FormData.superior_phone" maxlength="11" label="直接上级及电话" placeholder="请输入直接上级及电话" />
+        <!-- <van-field v-model="FormData.superior_phone" maxlength="11" label="直接上级及电话" placeholder="请输入直接上级及电话" /> -->
       </van-cell-group>
       <div class="btns">
         <van-button icon="plus" type="primary" @click="addForm2" size="small" />
         <van-button icon="minus" type="primary" @click="reduceForm2" :disabled="WeFormData.length === 1" size="small" />
       </div>
       <!-- 培训机构 -->
-      <span class="box" style="font-weight: 700;">培训经历:</span>
+      <!-- <span class="box" style="font-weight: 700;">培训经历:</span>
       <van-cell-group inset v-for="(FormData, index) in TeFormData" :key="index">
         <van-field v-model="FormData.trainingTime" is-link readonly name="datePicker" label="培训时间" placeholder="点击选择时间"
           @click="showPicker[index] = true" />
@@ -49,7 +49,7 @@
       <div class="btns">
         <van-button icon="plus" type="primary" @click="addForm1" size="small" />
         <van-button icon="minus" type="primary" @click="reduceForm1" :disabled="TeFormData.length === 1" size="small" />
-      </div>
+      </div> -->
     </van-form>
   </div>
 </template>
