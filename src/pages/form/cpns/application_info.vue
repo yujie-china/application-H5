@@ -12,7 +12,7 @@
           <van-radio class="radio_style" shape="square" icon-size="16px" name="2">离职</van-radio>
         </van-radio-group>
         <!-- <van-field v-model="FormData.come_time" is-link readonly name="datePicker" label="可到岗日期" placeholder="点击选择时间"
-          @click="showPicker1 = true" required />
+          @click="showPicker1 = true" required /> 
         <van-popup v-model:show="showPicker1" position="bottom">
           <van-date-picker @confirm="onConfirm1" @cancel="showPicker1 = false" />
         </van-popup> -->
