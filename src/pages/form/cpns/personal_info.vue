@@ -47,19 +47,19 @@
                         @cancel="locationShow = false" />
                 </van-popup>
 
-                <van-field v-model="FormData.livingCascaderValue" is-link readonly label="居住地" placeholder="请输入户口所在地"
+                <!-- <van-field v-model="FormData.livingCascaderValue" is-link readonly label="居住地" placeholder="请输入户口所在地"
                     @click="livingShow = true" />
                 <van-popup v-model:show="livingShow" round position="bottom">
                     <van-area :area-list="areaList" title="请选择所在地区" @confirm="livingOnFinish"
                         @cancel="livingShow = false" />
-                </van-popup>
+                </van-popup> -->
 
-                <van-field v-model="FormData.nativeCascaderValue" is-link readonly label="籍贯" placeholder="请输入籍贯"
+                <!-- <van-field v-model="FormData.nativeCascaderValue" is-link readonly label="籍贯" placeholder="请输入籍贯"
                     @click="nativeShow = true" />
                 <van-popup v-model:show="nativeShow" round position="bottom">
                     <van-area :area-list="areaList" title="请选择所在地区" @confirm="nativeOnFinish"
                         @cancel="nativeShow = false" />
-                </van-popup>
+                </van-popup> -->
 
                 <van-col span="12">
                     <van-field v-model="FormData.nation" :rules="nationRules" maxlength="11" label="民族" placeholder="请输入民族"
